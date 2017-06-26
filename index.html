@@ -5,7 +5,12 @@
     <title>Hello World!</title>
   </head>
   <body>
+    <webview
+    preload="./mt4-inject.js" src='https://trade.mql5.com/trade?servers=XMTrading-Demo%202,XMTrading-Demo%203,XMTrading-Real%2011,XMTrading-Real%2012,XM.COM-Demo,XM.COM-Demo%202,XM.COM-Real%201,XM.COM-Real%202,XM.COM-Real%203,XM.COM-Real%205,XM.COM-Real%206,XM.COM-Real%207,XM.COM-Real%208,XM.COM-Real%209,XM.COM-Real%2010,XM.COM-Real%2011,XM.COM-Real%2013,XM.COM-Real%2014,XM.COM-Real%2015,XM.COM-Real%2016,XM.COM-Real%2017,XM.COM-Real%2018,XM.COM-Real%2019,XM.COM-Real%2020,XM.COM-Real%2023&trade_server=XMTrading-Demo%202&demo_server=XMTrading-Demo%202&demo_type=EUR-XMS,USD-XMS,JPY-XMS&demo_leverage=1,2,3,5,10,15,20,25,50,66,100,200,300,400,500,888&lang=ja'></webview>
     <h1>Hello World!</h1>
+    <webview
+    preload="./hl-inject.js" src='https://jp.trade.highlow.net/Account/QuickDemoLogin'></webview>
+
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
