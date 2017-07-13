@@ -1,10 +1,26 @@
 const electron = require('electron')
+const path = require('path')
 // Module to control application life.
 const app = electron.app
+let pluginName
+switch (process.platform) {
+  case 'win32':
+    pluginName = 'pepflashplayer.dll'
+    break
+  case 'darwin':
+    pluginName = `PepperFlashPlayer.plugin`
+    break
+  case 'linux':
+    pluginName = 'libpepflashplayer.so'
+    break
+}
+if(process.env.MODE != 'dev') {
+  pluginName = path.join(`${__dirname}/../../`,pluginName)
+}
+app.commandLine.appendSwitch('ppapi-flash-path', path.join(pluginName))
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
-const path = require('path')
 const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -13,7 +29,7 @@ let mainWindow
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({width: 1200, height: 800})
+    mainWindow = new BrowserWindow({width: 725, height: 640})
 
     // and load the index.html of the app.
     mainWindow.loadURL(url.format({
@@ -44,9 +60,7 @@ app.on('ready', createWindow)
 app.on('window-all-closed', function() {
     // On OS X it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
-    if (process.platform !== 'darwin') {
-        app.quit()
-    }
+    app.quit()
 })
 
 app.on('activate', function() {

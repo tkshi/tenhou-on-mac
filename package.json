@@ -1,11 +1,11 @@
 {
-  "name": "BinaryNext",
+  "name": "Tenhou",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "watch": "nodemon --exec 'electron .' --ext 'html js'"
+    "start": "MODE=dev electron .",
+    "watch": "MODE=dev nodemon --exec 'electron .' --ext 'html js'"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -20,6 +20,9 @@
   "devDependencies": {
     "electron": "~1.6.2",
     "electron-builder": "^19.8.0"
+  },
+  "build": {
+    "extraFiles":"./PepperFlashPlayer.plugin"
   },
   "dependencies": {
     "nodemon": "^1.11.0"
